@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: tomcatrc
+spec:
+  replicas: 3
+  selector:
+    app: tomcat
+  template:
+    metadata:
+      name: tomcat
+      labels:
+        pod: tomcatrc
+        app: tomcat
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat
+        ports:
+        - containerPort: 8080
