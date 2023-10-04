@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeserve-1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubeserve1
+  template:
+    metadata:
+      name: kubeserve1
+      labels:
+        app: kubeserve1
+    spec:
+      nodeName: anode02
+      containers:
+      - image: leaddevops/kubeserve:v1
+        name: app

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeserve-gpu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubeserve-gpu
+  template:
+    metadata:
+      name: kubeserve-gpu
+      labels:
+        app: kubeserve-gpu
+    spec:
+      nodeSelector: 
+         gpu: "nvidia"
+      containers:
+      - image: leaddevops/kubeserve:v1
+        name: app
