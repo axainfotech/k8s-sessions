@@ -20,7 +20,7 @@ spec:
         app: kubeserve
     spec:
       containers:
-      - image: leaddevops/kubeserve:v2
+      - image: leaddevops/kubeserve:v1
         name: app
 
 ---
